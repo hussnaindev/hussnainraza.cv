@@ -643,8 +643,8 @@
       gap: 40px;
       padding: 40px 0;
       border-bottom: 1px solid var(--border);
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 1;
+      transform: none;
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
@@ -739,8 +739,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       box-shadow: 0 4px 32px rgba(45, 41, 38, 0.06);
-      opacity: 0;
-      transform: translateY(24px);
+      opacity: 1;
+      transform: none;
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
@@ -909,8 +909,8 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 26px;
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 1;
+      transform: none;
       transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s, border-color 0.2s;
     }
 
@@ -1300,6 +1300,132 @@
         font-size: 28px;
       }
     }
+
+    /* ─── CERTIFICATES & AWARDS ─── */
+    #certificates {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .cert-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 14px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--sand-300) transparent;
+    }
+
+    .cert-grid::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .cert-grid::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .cert-grid::-webkit-scrollbar-thumb {
+      background: var(--sand-300);
+      border-radius: 2px;
+    }
+
+    .cert-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s, border-color 0.2s;
+      flex: 0 0 260px;
+      scroll-snap-align: start;
+    }
+
+    .cert-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cert-card:hover {
+      box-shadow: 0 8px 28px rgba(45, 41, 38, 0.08);
+      border-color: var(--sand-300);
+    }
+
+    .cert-logo-wrap {
+      width: 88px;
+      height: 88px;
+      border-radius: 16px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .cert-logo-wrap img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .cert-logo-fallback {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .cert-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .cert-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    .cert-issuer {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      color: var(--muted);
+      font-weight: 300;
+      margin-top: 2px;
+    }
+
+    .cert-issuer-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      flex-shrink: 0;
+    }
+
+    .cert-badge {
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: var(--accent-soft);
+      color: var(--terracotta-dark);
+      border: 1px solid rgba(204, 120, 92, 0.2);
+    }
   </style>
 </head>
 
@@ -1312,6 +1438,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#certificates">Certificates</a></li>
       <li><a href="mailto:hussnain.444.work@gmail.com" class="nav-cta">Get in touch</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
@@ -1325,6 +1452,7 @@
     <a href="#projects" onclick="closeMenu()">Projects</a>
     <a href="#skills" onclick="closeMenu()">Skills</a>
     <a href="#education" onclick="closeMenu()">Education</a>
+    <a href="#certificates" onclick="closeMenu()">Certificates</a>
   </div>
 
   <!-- HERO -->
@@ -1617,6 +1745,102 @@
     </div>
   </section>
 
+  <!-- CERTIFICATES & AWARDS -->
+  <section id="certificates">
+    <div class="section-inner">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Certificates &amp; Awards</h2>
+
+      <div class="cert-grid">
+
+        <!-- HacktoberfFest -->
+        <div class="cert-card">
+          <div class="cert-logo-wrap">
+            <img src="./assets/" alt="HacktoberfFest"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="cert-logo-fallback" style="display:none">🎃</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">HacktoberfFest: Open Source Contributions</div>
+            <div class="cert-issuer"><span class="cert-issuer-dot"></span>Digital Ocean</div>
+          </div>
+          <div class="cert-badge">Award</div>
+        </div>
+
+        <!-- Learning C# -->
+        <div class="cert-card">
+          <div class="cert-logo-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="cert-logo-fallback" style="display:none">📜</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Learning C#</div>
+            <div class="cert-issuer"><span class="cert-issuer-dot"></span>LinkedIn</div>
+          </div>
+          <div class="cert-badge">Certificate</div>
+        </div>
+
+        <!-- Serverless Cloud Run -->
+        <div class="cert-card">
+          <div class="cert-logo-wrap">
+            <img src="./assets/serverless-cloud.png" alt="Serverless Cloud Run"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="cert-logo-fallback" style="display:none">☁️</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Serverless Cloud Run Deployment</div>
+            <div class="cert-issuer"><span class="cert-issuer-dot"></span>Google Cloud</div>
+          </div>
+          <div class="cert-badge">Certificate</div>
+        </div>
+
+        <!-- Terraform -->
+        <div class="cert-card">
+          <div class="cert-logo-wrap">
+            <img src="./assets/terraform.png" alt="Terraform"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="cert-logo-fallback" style="display:none">🏗️</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Automating Infrastructure using Terraform</div>
+            <div class="cert-issuer"><span class="cert-issuer-dot"></span>Google Cloud</div>
+          </div>
+          <div class="cert-badge">Certificate</div>
+        </div>
+
+        <!-- Intro to ML -->
+        <div class="cert-card">
+          <div class="cert-logo-wrap">
+            <img src="./assets/intro-to-ml.png" alt="Intro to ML"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="cert-logo-fallback" style="display:none">🤖</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Intro to ML: Language Processing</div>
+            <div class="cert-issuer"><span class="cert-issuer-dot"></span>Google Cloud</div>
+          </div>
+          <div class="cert-badge">Certificate</div>
+        </div>
+
+        <!-- Manage Cloud Resources -->
+        <div class="cert-card">
+          <div class="cert-logo-wrap">
+            <img src="./assets/manage-cloud-resources.png" alt="Cloud Resources"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="cert-logo-fallback" style="display:none">🔧</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Create and Manage Cloud Resources</div>
+            <div class="cert-issuer"><span class="cert-issuer-dot"></span>Google Cloud</div>
+          </div>
+          <div class="cert-badge">Certificate</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner">
@@ -1663,6 +1887,7 @@
     <span class="footer-text">© 2026 Muhammad Hussnain Raza. All rights reserved.</span>
   </footer>
 
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
@@ -1690,16 +1915,6 @@
     document.querySelectorAll('.exp-item').forEach((el, i) => { el.dataset.delay = i * 100; observer.observe(el); });
     document.querySelectorAll('.skill-card').forEach((el, i) => { el.dataset.delay = i * 70; observer.observe(el); });
     document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
+    document.querySelectorAll('.cert-card').forEach((el, i) => { el.dataset.delay = i * 80; observer.observe(el); });
 
     const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--charcoal)' : '';
-      });
-    });
-  </script>
-</body>
-
-</html>
