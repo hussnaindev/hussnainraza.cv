@@ -877,6 +877,42 @@
       margin-bottom: 10px;
     }
 
+    .project-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .project-title-row .project-title {
+      margin-bottom: 0;
+    }
+
+    .project-site-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--charcoal-light);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--bg-warm);
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .project-site-link:hover {
+      border-color: var(--terracotta);
+      background: var(--accent-soft);
+      color: var(--terracotta-dark);
+      transform: translateY(-1px);
+    }
+
     .project-title {
       font-family: 'Crimson Pro', serif;
       font-size: 30px;
@@ -1806,7 +1842,18 @@
           </div>
           <div class="project-info">
             <div class="project-eyebrow">Open Source</div>
-            <h3 class="project-title">Scrapify</h3>
+            <div class="project-title-row">
+              <h3 class="project-title">Scrapify</h3>
+              <a href="https://scrapify-omega.vercel.app/" target="_blank" rel="noopener" class="project-site-link">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                Visit Site
+              </a>
+            </div>
             <p class="project-subtitle">Intelligent Web Scraping Platform</p>
             <ul class="project-features">
               <li>Automated data extraction from any website</li>
