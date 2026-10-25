@@ -460,11 +460,7 @@
     }
 
     .hero-photo-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
+      padding: 18px 18px 0;
       background-color: var(--c-blue);
       background-image: var(--halftone);
       background-size: 8px 8px;
@@ -473,8 +469,12 @@
 
     .hero-photo-placeholder img {
       display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
-      object-position: top;
+      object-position: center 20%;
+      border: var(--bw) solid var(--ink);
+      border-bottom: none;
     }
 
     .hero-photo-card-footer {
@@ -1375,7 +1375,7 @@
       <div class="hero-right">
         <div class="hero-photo-card">
           <div class="hero-photo-placeholder">
-            <img src="./assets/photo.jpg" alt="Hussnain Raza" width="100%" style="padding-top: 15%;">
+            <img src="./assets/photo.jpg" alt="Hussnain Raza">
           </div>
           <div class="hero-photo-card-footer">
             <div class="hero-photo-location">
